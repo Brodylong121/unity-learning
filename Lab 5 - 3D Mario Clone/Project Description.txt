@@ -1,0 +1,41 @@
+Project Description
+	The Unity Project 5 Lab provides the student with an introduction to 3D design concepts through the creation of a 3D Mario game using Unity. This project will take the 2D game designed previously and add an element of 3D design and gameplay using a complete set of 3D models and scripts.
+	
+Objectives
+	Build a 3D action adventure game with players, enemies, ai, pathing, sounds, menus and traditional 3D gameplay elements through Unity’s editor and scripting tools. 
+	
+Production Time
+	Research:	3 hours
+	Design:     4 hour
+	Build:      6 hours
+	Play Test:  4 hour +
+	
+Details
+	Unity Project 5 Lab requires the following to be completed for the web build.
+
+	Walkthrough (Minimum 10 step)
+	Blueprint (layout)
+	Intro Screen
+	Start Screen
+	Game/Level (Minimum 1 playable level, 3 minutes minimum)
+	Victory Screen (With option to replay, start over, and quit)
+	Loss Screen (With option to replay, start over, and quit)
+	GUI / Interface (In game and for the menus)
+	Working Web Build
+	Bug Free
+	Presentation
+	
+On Your Own
+	After completing the video tutorials, the following elements must be created on your own and posted online for completion.
+
+	Designing with Mario
+		- Create three levels (or goal driven areas)
+		- Use all the art assets available (creatively)
+		- Find the fun and focus on it
+	Add a new Item
+		- Create a pickup item for Mario (Extra Live, Power up)
+		- Port the brick object from the 2D Mario game in to the 3D Mario game
+	Extra Credit
+		- Add a combo move (Ex. Turn/Jump, Ground pound, etc)
+		- Player Feedback (Player Flashes if Hit)
+		- Add a new Art Asset to the game with a custom behavior (Component)

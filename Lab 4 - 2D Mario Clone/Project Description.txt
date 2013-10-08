@@ -1,0 +1,44 @@
+Project Description
+	The Unity Project 4 Lab provides the student with advanced 2D design objectives through the creation of a 2D Mario remake using Unity. The completion of this project will provide the individual with the essential steps in creating 2D games.
+	
+Objectives
+	Build a complete 2D Side Scroller game with players, an enemy, ai, pathing, sounds, menus and traditional 2D gameplay elements through Unity’s editor and scripting tools.
+	
+Production Time
+	Research:	3 hours
+	Design:     2 hours
+	Code:      16 hours
+	Play Test:  2 hours +
+	
+Details
+	Unity Project 4 Lab requires the following to be completed for the web build. 
+	  Note: All details are provided in the Lab Videos
+
+	Walkthrough (Minimum 10 step)
+	Blueprint (layout)
+	Menu Screen
+	Game/Level (Minimum 2 playable levels, 2 minutes minimum)
+	Victory Screen (With option to replay, start over, and quit)
+	Loss Screen (With option to replay, start over, and quit)
+	Web Build online
+	Bug Free
+	Presentation
+	
+On Your Own
+	After completing the video tutorials, the following elements should be created on your own and posted online for completion.
+
+	Word Balloon (Tutorial 26)
+		- Create one Word Balloon Type for another event
+	Flag Pole and Finish  (Tutorial 27)
+		- Mario jumps on Flag pole and goes down it
+		- Mario walks to the castle and finishes
+		- Score from time adds to points
+		- World 1 - 1 is completed :)
+	Scene Transition Wipe  (Tutorial 28)
+		- Implement Scene Transition Wipe between each Scene
+	Design the Next World  (Tutorial 29)
+		- Create a new world for Mario to Explore
+		- World must have a beginning and end
+		- Optional: Create a new gameplay element (Ex: Moving Pads)
+	Menu Screen (Tutorial 30)
+		- Create a complete Menu Screen with Start, Credits, Quit 
