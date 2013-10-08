@@ -13,11 +13,11 @@ Learning Objectives
 	Introduction to Scene Loading
 	
 Production Time
-	Setup	10 minutes
-	Assets	45 minutes
-	Player	30 minutes
-	Enemy	20 minutes
-	Menus	40 minutes
+	Setup	10 minutes - 07 minutes
+	Assets	45 minutes - 44 minutes
+	Player	30 minutes - 34 minutes
+	Enemy	20 minutes - 37 minutes
+	Menus	40 minutes - 
 	GUI		30 minutes
 	Build	10 minutes
 	Review	10 minutes
