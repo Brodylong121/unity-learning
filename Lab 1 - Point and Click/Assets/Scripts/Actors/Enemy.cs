@@ -23,6 +23,11 @@ public class Enemy : MonoBehaviour
 	/// The explosion transform.
 	/// </summary>
 	public Transform explosion;
+	
+	/// <summary>
+	/// How many points the enemy is worth.
+	/// </summary>
+	public int enemyPoints = 1;
 	#endregion Inspector Variables
 	
 	#region Private Variables
@@ -38,7 +43,16 @@ public class Enemy : MonoBehaviour
 	/// </summary>
 	void Start()
 	{
+		// Stores initial click count.
 		storeClicks = numberOfClicks;
+		
+		// Creates new random position for the game object.
+		Vector3 position = new Vector3( Random.Range(-6f,6f), Random.Range(-4f,4f), 0);
+		
+		// Move the game object to a new location
+		transform.position = position;
+		
+		RandomColor ();
 	}
 	
 	/// <summary>
@@ -51,7 +65,11 @@ public class Enemy : MonoBehaviour
 			// Instantiates an explosion.
 			if( explosion != null )
 			{
-				Instantiate(explosion, transform.position, transform.rotation);
+				Instantiate(explosion, transform.position, transform.rotation);				
+			}
+			if( audio != null )
+			{
+				audio.Play();
 			}
 			
 			// Creates new random position for the game object.

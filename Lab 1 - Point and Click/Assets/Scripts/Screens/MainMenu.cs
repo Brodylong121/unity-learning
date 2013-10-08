@@ -1,15 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MainMenu : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+/// <summary>
+/// Main menu script.
+/// </summary>
+public class MainMenu : MonoBehaviour 
+{
+	/// <summary>
+	/// Event called on GUI drawing.
+	/// </summary>
+	void OnGUI()
+	{
+		if( GUI.Button(new Rect(10, 10, 90, 50), "Start Game") )
+		{
+			Application.LoadLevel("Level");
+		}
+		if( GUI.Button(new Rect(10, 70, 90, 50), "Exit Game") )
+		{
+			Application.Quit();
+		}
 	}
 }
