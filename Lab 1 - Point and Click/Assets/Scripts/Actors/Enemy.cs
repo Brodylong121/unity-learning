@@ -9,10 +9,15 @@ public class Enemy : MonoBehaviour
 	/// </summary>
 	public int numberOfClicks = 2;
 	
-	/// <summary>
-	/// The respawn wait time.
-	/// </summary>
-	public float respawnWaitTime = 2.0f;
+    /// <summary>
+    /// Minimum respawn time
+    /// </summary>
+    public float minRespawnTime = 0.5f;
+
+    /// <summary>
+    /// Maximum respawn time
+    /// </summary>
+    public float maxRespawnTime = 2.0f;
 	
 	/// <summary>
 	/// The color of the shape.
@@ -50,6 +55,11 @@ public class Enemy : MonoBehaviour
 	/// Seconds blinking.
 	/// </summary>
 	private float seconds = 0.0f;
+
+    /// <summary>
+    /// The respawn wait time.
+    /// </summary>
+    private float respawnWaitTime = 2.0f;
 	
 	/// <summary>
 	/// Is the object blinking?
@@ -97,6 +107,7 @@ public class Enemy : MonoBehaviour
 	/// </summary>
 	IEnumerator RespawnWaitTime()
 	{
+        respawnWaitTime = Random.Range(minRespawnTime, maxRespawnTime);
 		renderer.enabled = false;
 		RandomColor();
 		yield return new WaitForSeconds(respawnWaitTime);
