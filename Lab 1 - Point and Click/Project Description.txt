@@ -22,6 +22,12 @@ Production Time
 	Build	10 minutes - 3 minutes
 	Review	10 minutes - 5 minutes
 	
+	Research - 12 minutes
+	Art - 
+	Design -
+	Coding - 17 minutes
+	Playtesting - 1 minutes
+	
 High Concept
 	A high speed mouse clicking game. Using the mouse, click and destroy as many shapes as you
 	can to earn points and set a high score.

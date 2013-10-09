@@ -28,6 +28,16 @@ public class Enemy : MonoBehaviour
 	/// How many points the enemy is worth.
 	/// </summary>
 	public int enemyPoints = 1;
+	
+	/// <summary>
+	/// Time the object will blink after dying.
+	/// </summary>
+	public float blinkingSeconds = 3.0f;
+	
+	/// <summary>
+	/// Time for each part of the blinking.
+	/// </summary>
+	public float blinkTime = 0.5f;
 	#endregion Inspector Variables
 	
 	#region Private Variables
@@ -35,6 +45,16 @@ public class Enemy : MonoBehaviour
 	/// The stored clicks number.
 	/// </summary>
 	private int storeClicks = 0;
+	
+	/// <summary>
+	/// Seconds blinking.
+	/// </summary>
+	private float seconds = 0.0f;
+	
+	/// <summary>
+	/// Is the object blinking?
+	/// </summary>
+	private bool blinking = false;
 	#endregion Private Variables
 	
 	#region Game Cycle Methods
@@ -60,28 +80,13 @@ public class Enemy : MonoBehaviour
 	/// </summary>
 	void Update () 
 	{
-		if( numberOfClicks <= 0 )
-		{
-			// Instantiates an explosion.
-			if( explosion != null )
-			{
-				Instantiate(explosion, transform.position, transform.rotation);				
-			}
-			if( audio != null )
-			{
-				audio.Play();
-			}
-			
-			// Creates new random position for the game object.
-			Vector3 position = new Vector3( Random.Range(-6f,6f), Random.Range(-4f,4f), 0);
-			
-			//Makes object disapear and show after defined time.
-			StartCoroutine(RespawnWaitTime());
-			
-			// Move the game object to a new location
-			transform.position = position;
-			
-			numberOfClicks = storeClicks;
+		if( numberOfClicks <= 0 && !blinking )
+		{	
+			// Blink for Blinking Seconds predefined time
+			// After that, it will teleport the object to a random location.
+			seconds = blinkingSeconds;
+			blinking = true;
+			InvokeRepeating("Blink", blinkTime, blinkTime);
 		}
 	}
 	#endregion Game Cycle Methods
@@ -107,6 +112,43 @@ public class Enemy : MonoBehaviour
 		{
 			var newColor = Random.Range(0, shapeColor.Length );
 			renderer.material.color = shapeColor[newColor];
+		}
+	}
+	
+	/// <summary>
+	/// Blink the object.
+	/// </summary>
+	void Blink()
+	{
+		renderer.enabled = !renderer.enabled;
+		seconds -= blinkTime;
+		
+		if( seconds <= 0f )
+		{
+			renderer.enabled = true;
+			
+			// Instantiates an explosion.
+			if( explosion != null )
+			{
+				Instantiate(explosion, transform.position, transform.rotation);				
+			}
+			if( audio != null )
+			{
+				audio.Play();
+			}
+			
+			// Creates new random position for the game object.
+			Vector3 position = new Vector3( Random.Range(-6f,6f), Random.Range(-4f,4f), 0);
+			
+			// Move the game object to a new location
+			transform.position = position;
+			
+			numberOfClicks = storeClicks;
+			
+			CancelInvoke("Blink");
+			blinking = false;
+			
+			StartCoroutine(RespawnWaitTime());
 		}
 	}
 	#endregion Methods
