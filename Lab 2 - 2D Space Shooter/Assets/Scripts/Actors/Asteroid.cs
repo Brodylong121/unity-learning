@@ -59,8 +59,7 @@ public class Asteroid : MonoBehaviour
     {
         if( other.tag == "Player" )
         {
-            Player player = (other.GetComponent("Player") as Player);
-            player.health--;
+            SceneManager.SubtractLives();
 
             if (explosion != null)
             {

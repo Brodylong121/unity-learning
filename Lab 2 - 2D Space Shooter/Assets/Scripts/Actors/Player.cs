@@ -9,8 +9,6 @@ public class Player : MonoBehaviour
     /// </summary>
     public Vector2 playerSpeed = new Vector2(10f, 10f);
 
-    public int health = 3;
-
     #region Position Limit Variables
     /// <summary>
     /// Screen boundaries (Min X)

@@ -54,6 +54,9 @@ public class Bullet : MonoBehaviour
                 Instantiate(explosion, transform.position, transform.rotation);
             }
 
+            // Adds to the score.
+            SceneManager.AddScore();
+
             // Get rid of the object.
             Destroy(gameObject);
         }
