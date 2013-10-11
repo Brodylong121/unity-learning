@@ -4,11 +4,31 @@ using System.Collections;
 public class Asteroid : MonoBehaviour 
 {
     #region Inspector Variables
-    /// <summary>
-    /// Bullet speed
-    /// </summary>
-    public float asteroidSpeed = 6.0f;
 
+    #region RandomLimitsVariables
+    /// <summary>
+    /// Minimum speed.
+    /// </summary>
+    public float minSpeed = 4f;
+
+    /// <summary>
+    /// Maximum speed.
+    /// </summary>
+    public float maxSpeed = 10f;
+
+    /// <summary>
+    /// Minimum scale.
+    /// </summary>
+    public float minScale = 0.5f;
+
+    /// <summary>
+    /// Maximum Scale.
+    /// </summary>
+    public float maxScale = 3f;
+
+    #endregion RandomLimitsVariables
+
+    #region Position Variables
     /// <summary>
     /// Bottom of screen limit.
     /// </summary>
@@ -28,6 +48,7 @@ public class Asteroid : MonoBehaviour
     /// Maximum X.
     /// </summary>
     public float maxX = 6f;
+    #endregion Position Variables
 
     /// <summary>
     /// Explosion called when it hits a player
@@ -46,6 +67,10 @@ public class Asteroid : MonoBehaviour
     #endregion Inspector Variables
 
     #region Private Variables
+    /// <summary>
+    /// Bullet speed
+    /// </summary>
+    private float asteroidSpeed = 6.0f;
     #endregion Private Variables
 
     #region Game Cycle Methods
@@ -110,6 +135,12 @@ public class Asteroid : MonoBehaviour
     /// </summary>
     public void ResetPosition()
     {
+        asteroidSpeed = Random.Range(minSpeed, maxSpeed);
+        float scale = Random.Range(minScale, maxScale);
+
+        transform.localScale = new Vector3(scale, scale, scale);
+
+
         transform.position = new Vector3(Random.Range(minX, maxX) , topLimit, 0f);
     }
     #endregion Methods
