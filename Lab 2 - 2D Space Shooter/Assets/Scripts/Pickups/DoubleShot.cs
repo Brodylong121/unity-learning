@@ -1,29 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bullet : MonoBehaviour 
+public class DoubleShot : MonoBehaviour 
 {
     #region Inspector Variables
     /// <summary>
     /// Bullet speed
     /// </summary>
-    public float bulletSpeed = 15.0f;
+    public float powerupSpeed = 1.0f;
 
     /// <summary>
     /// Upper limit where the bullet will be destroyed.
     /// </summary>
-    public float upperLimit = 10.0f;
-
-    /// <summary>
-    /// Explosion effect.
-    /// </summary>
-    public Transform explosion = null;
+    public float bottomLimit = -8.0f;
 
     /// <summary>
     /// Explosion sound.
     /// </summary>
     public AudioClip fxSound = null;
-
     #endregion Inspector Variables
 
     #region Private Variables
@@ -35,9 +29,9 @@ public class Bullet : MonoBehaviour
     /// </summary>
     void Update()
     {
-        transform.Translate( Vector3.up * (bulletSpeed * Time.deltaTime) );
+        transform.Translate(Vector3.down * (powerupSpeed * Time.deltaTime));
 
-        if( transform.position.y > upperLimit )
+        if (transform.position.y < bottomLimit)
         {
             Destroy(gameObject);
         }
@@ -48,34 +42,22 @@ public class Bullet : MonoBehaviour
     /// </summary>
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Asteroid")
+        print("Collision!");
+
+        if (other.tag == "Player")
         {
             // Reset the position of the enemy.
-            Asteroid asteroid = other.GetComponent("Asteroid") as Asteroid;
+            Player player = other.GetComponent("Player") as Player;
 
-            // Randomly generates (or not) one power up.
-            asteroid.GeneratePowerup();
-
-            if (asteroid != null) asteroid.ResetPosition();
-
-            if (explosion != null)
+            if( player != null )
             {
-                // Create an explosion on impact.
-                Instantiate(explosion, transform.position, transform.rotation);
-
+                player.AddShot();
                 if (fxSound != null) AudioSource.PlayClipAtPoint(fxSound, transform.position);
             }
-
-            // Adds to the score.
-            SceneManager.AddScore();
 
             // Get rid of the object.
             Destroy(gameObject);
         }
     }
     #endregion Game Cycle Methods
-
-    #region Methods
-
-    #endregion Methods
 }

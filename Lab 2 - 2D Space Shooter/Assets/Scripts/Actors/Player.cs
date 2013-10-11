@@ -140,5 +140,24 @@ public class Player : MonoBehaviour
     {
         shieldOn = false;
     }
+
+    /// <summary>
+    /// Add shot.
+    /// </summary>
+    public void AddShot()
+    {
+        if( projectileSocket.Length > usedSockets )
+        {
+            // Add used socket.
+            usedSockets++;
+        }
+        else
+        {
+            // Gives one extra score.
+            SceneManager.score += 1;
+        }
+
+        SceneManager.score += 1;
+    }
     #endregion Methods
 }

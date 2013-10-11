@@ -33,7 +33,7 @@ Production Time
 		
 		(Own)
 		Research		- 8 minutes
-		Art				- 2 minutes
+		Art				- 5 minutes
 		Design 			- 2 minutes
 		Coding 			- 15 minutes
 		Playtesting		- 2 minutes

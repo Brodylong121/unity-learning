@@ -50,6 +50,18 @@ public class Asteroid : MonoBehaviour
     public float maxX = 6f;
     #endregion Position Variables
 
+    #region Powerups
+    /// <summary>
+    /// The powerups.
+    /// </summary>
+    public Transform[] powerups;
+
+    /// <summary>
+    /// Powerup chance, from 0 to 1.
+    /// </summary>
+    public float powerupChance = 0.2f;
+    #endregion Powerups
+
     /// <summary>
     /// Explosion called when it hits a player
     /// </summary>
@@ -142,6 +154,27 @@ public class Asteroid : MonoBehaviour
 
 
         transform.position = new Vector3(Random.Range(minX, maxX) , topLimit, 0f);
+    }
+
+    /// <summary>
+    /// Generates powerup randomly.
+    /// </summary>
+    public void GeneratePowerup()
+    {
+        float rand = Random.Range(0f, 1f);
+
+        if (rand <= powerupChance)
+        {
+            if (powerups.Length > 0)
+            {
+                int value = Random.Range(0, powerups.Length);
+
+                // Generates one Power Up.
+                Instantiate(powerups[value], transform.position, transform.rotation);
+            }
+
+        }
+
     }
     #endregion Methods
 }
