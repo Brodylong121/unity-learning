@@ -50,7 +50,12 @@ public class Player : MonoBehaviour
     /// <summary>
     /// The projectile socket.
     /// </summary>
-    public Transform projectileSocket = null;
+    public Transform[] projectileSocket;
+
+    /// <summary>
+    /// Sockets being used right now.
+    /// </summary>
+    public int usedSockets = 1;
     #endregion Projectible Variables
 
     #endregion Inspector Variables
@@ -84,9 +89,24 @@ public class Player : MonoBehaviour
         // Create a bullet.
         if( Input.GetKeyDown(KeyCode.Space) )
         {
-            if (projectile != null && projectileSocket != null)
+            if (projectile != null && projectileSocket.Length > 0)
             {
-                Instantiate(projectile, projectileSocket.position, transform.rotation);
+                #region Odd/Even sockets treatment
+                // Will it use the central socket?
+                int diff = ( usedSockets + 1) % 2;
+
+                // If has an even total number of sockets, it will use the central one anyway.
+                if( projectileSocket.Length == usedSockets && diff == 1 )
+                {
+                    print("Odd + Last");
+                    diff = 0;
+                }
+                #endregion Odd/Even sockets treatment
+
+                for (int i = diff; i < usedSockets + diff; i++ )
+                {
+                    Instantiate(projectile, projectileSocket[i].position, projectileSocket[i].rotation);
+                }
                 if( audio != null ) audio.Play();
             }
         }
@@ -113,6 +133,9 @@ public class Player : MonoBehaviour
     #endregion Game Cycle Methods
 
     #region Methods
+    /// <summary>
+    /// Disables shield after being hit.
+    /// </summary>
     public void DisableShield()
     {
         shieldOn = false;
