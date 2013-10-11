@@ -33,12 +33,31 @@ public class Asteroid : MonoBehaviour
     /// Explosion called when it hits a player
     /// </summary>
     public Transform explosion = null;
+
+    /// <summary>
+    /// Shield explosion audio.
+    /// </summary>
+    public AudioClip shieldExplosionAudio;
+
+    /// <summary>
+    /// Player hit audio.
+    /// </summary>
+    public AudioClip playerHitAudio;
     #endregion Inspector Variables
 
     #region Private Variables
     #endregion Private Variables
 
     #region Game Cycle Methods
+
+    /// <summary>
+    /// Initializes the asteroid.
+    /// </summary>
+    void Start()
+    {
+        ResetPosition();
+    }
+
     /// <summary>
     /// Update is called once per frame
     /// </summary>
@@ -57,13 +76,27 @@ public class Asteroid : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if( other.tag == "Player" )
+        if( other.tag == "Player" || other.tag == "Shield" )
         {
-            SceneManager.SubtractLives();
+            if (other.tag == "Player")
+            {
+                SceneManager.SubtractLives();
+
+                if (audio != null) audio.clip = playerHitAudio;
+            }
+            else
+            {
+                if (audio != null) audio.clip = shieldExplosionAudio;
+            }
 
             if (explosion != null)
             {
                 Instantiate(explosion, transform.position, transform.rotation);
+            }
+
+            if( audio != null )
+            {
+                audio.Play();
             }
 
             ResetPosition();

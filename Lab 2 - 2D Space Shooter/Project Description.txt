@@ -14,13 +14,30 @@ Learning Objectives
 	
 Production Time
 	Setup	10 minutes - 3 minutes
-	Assets	45 minutes - 47 minutes (40 art/ 7 design)
+	Assets	45 minutes - 47 minutes
 	Player	30 minutes - 73 minutes
 	Enemy	20 minutes - 42 minutes
-	Menus	40 minutes - 37 minutes
+	Menus	40 minutes - 55 minutes
 	GUI		30 minutes - 43 minutes
-	Build	10 minutes -
-	Review	10 minutes -
+	Game	60 minutes - 65 minutes
+	Build	10 minutes - 3 minutes
+	Review	10 minutes - 3 minutes
+	
+	Time:
+		(Lab)
+		Research		- 9 minutes
+		Art				- 52 minutes
+		Design 			- 66 minutes
+		Coding 			- 198 minutes
+		Playtesting		- 9 minutes
+		
+		(Own)
+		Research		-
+		Art				-
+		Design 			-
+		Coding 			-
+		Playtesting		-
+	
 	
 High Concept
 	A space shooter where the player must avoid asteroids that try to destroy their ship.

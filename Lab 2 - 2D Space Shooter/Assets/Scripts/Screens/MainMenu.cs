@@ -24,6 +24,8 @@ public class MainMenu : MonoBehaviour
         // Add buttons for navigation.
         if( GUI.Button(new Rect(10, 30, 80, 30), "Start Game") )
         {
+            SceneManager.score = 0;
+            SceneManager.lives = 3;
             Application.LoadLevel("LoadingScreen");
         }
 

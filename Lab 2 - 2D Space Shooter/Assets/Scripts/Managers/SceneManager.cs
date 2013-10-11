@@ -36,6 +36,7 @@ public class SceneManager : MonoBehaviour
     void Start()
     {
         seconds = gameTime;
+
         InvokeRepeating("Countdown", 1f, 1f);
     }
     
@@ -44,7 +45,23 @@ public class SceneManager : MonoBehaviour
     /// </summary>
     void Update()
     {
+        // Updates High Score, if needed.
+        if (score > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+        }
 
+        // If you lose all your lives, you lose the game.
+        if( lives <= 0 )
+        {
+            Application.LoadLevel("GameOver");
+        }
+
+        // If the time ends, you win!
+        if( seconds <= 0 )
+        {
+            Application.LoadLevel("VictoryScreen");
+        }
     }
 
     /// <summary>

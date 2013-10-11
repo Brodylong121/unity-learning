@@ -9,6 +9,16 @@ public class Player : MonoBehaviour
     /// </summary>
     public Vector2 playerSpeed = new Vector2(10f, 10f);
 
+    /// <summary>
+    /// Number of shields the player can use.
+    /// </summary>
+    public int numberOfShields = 4;
+
+    /// <summary>
+    /// Shield mesh.
+    /// </summary>
+    public Transform shieldMesh = null;
+
     #region Position Limit Variables
     /// <summary>
     /// Screen boundaries (Min X)
@@ -46,6 +56,10 @@ public class Player : MonoBehaviour
     #endregion Inspector Variables
 
     #region Private Variables
+    /// <summary>
+    /// Is the shield on?
+    /// </summary>
+    private bool shieldOn = false;
     #endregion Private Variables
 
     #region Game Cycle Methods
@@ -73,9 +87,35 @@ public class Player : MonoBehaviour
             if (projectile != null && projectileSocket != null)
             {
                 Instantiate(projectile, projectileSocket.position, transform.rotation);
+                if( audio != null ) audio.Play();
             }
         }
         #endregion Shooting
+
+        #region Shield
+        if( Input.GetKeyDown(KeyCode.E) )
+        {
+            if( shieldMesh != null )
+            {
+                if (!shieldOn && numberOfShields > 0)
+                {
+                    Transform shield = Instantiate(shieldMesh, transform.position, transform.rotation) as Transform;
+                    shield.transform.parent = gameObject.transform;
+
+                    numberOfShields--;
+
+                    shieldOn = true;
+                }
+            }
+        }
+        #endregion Shield
     }
     #endregion Game Cycle Methods
+
+    #region Methods
+    public void DisableShield()
+    {
+        shieldOn = false;
+    }
+    #endregion Methods
 }

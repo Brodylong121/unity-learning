@@ -18,6 +18,11 @@ public class Bullet : MonoBehaviour
     /// Explosion effect.
     /// </summary>
     public Transform explosion = null;
+
+    /// <summary>
+    /// Explosion sound.
+    /// </summary>
+    public AudioClip fxSound = null;
     #endregion Inspector Variables
 
     #region Private Variables
@@ -52,6 +57,8 @@ public class Bullet : MonoBehaviour
             {
                 // Create an explosion on impact.
                 Instantiate(explosion, transform.position, transform.rotation);
+
+                if (fxSound != null) AudioSource.PlayClipAtPoint(fxSound, transform.position);
             }
 
             // Adds to the score.
