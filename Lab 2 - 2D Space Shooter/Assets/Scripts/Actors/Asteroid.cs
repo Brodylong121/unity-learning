@@ -59,7 +59,7 @@ public class Asteroid : MonoBehaviour
     /// <summary>
     /// Powerup chance, from 0 to 1.
     /// </summary>
-    public float powerupChance = 0.2f;
+    public float powerupChance = 0.03f;
     #endregion Powerups
 
     /// <summary>

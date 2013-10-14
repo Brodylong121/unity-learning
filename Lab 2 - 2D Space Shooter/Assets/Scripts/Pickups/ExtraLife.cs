@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DoubleShot : MonoBehaviour 
+/// <summary>
+/// Extra life pickup.
+/// </summary>
+public class ExtraLife : MonoBehaviour 
 {
     #region Inspector Variables
     /// <summary>
@@ -47,9 +50,9 @@ public class DoubleShot : MonoBehaviour
             // Reset the position of the enemy.
             Player player = other.GetComponent("Player") as Player;
 
-            if( player != null )
+            if (player != null)
             {
-                player.AddShot();
+                SceneManager.lives++;
                 if (fxSound != null) AudioSource.PlayClipAtPoint(fxSound, transform.position);
             }
 
