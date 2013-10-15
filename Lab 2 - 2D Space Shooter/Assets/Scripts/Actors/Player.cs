@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
     /// <summary>
     /// Screen boundaries (Max Y)
     /// </summary>
-    public float maxY = 4f;
+    public float maxY = 6f;
     #endregion Position Limit Variables
 
     #region Projectible Variables

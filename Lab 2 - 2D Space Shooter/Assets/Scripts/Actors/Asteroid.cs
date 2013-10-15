@@ -113,7 +113,7 @@ public class Asteroid : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if( other.tag == "Player" || other.tag == "Shield" )
+        if( other.tag == "Player" || other.tag == "Shield" || other.tag == "Block" )
         {
             if (other.tag == "Player")
             {

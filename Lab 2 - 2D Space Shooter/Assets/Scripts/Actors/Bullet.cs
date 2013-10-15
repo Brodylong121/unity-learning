@@ -72,6 +72,10 @@ public class Bullet : MonoBehaviour
             // Get rid of the object.
             Destroy(gameObject);
         }
+        if( other.tag == "Block" )
+        {
+            Destroy(gameObject);
+        }
     }
     #endregion Game Cycle Methods
 
