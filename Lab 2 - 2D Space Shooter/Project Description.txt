@@ -32,11 +32,11 @@ Production Time
 		Playtesting		- 9 minutes
 		
 		(Own)
-		Research		- 14 minutes
+		Research		- 16 minutes
 		Art				- 21 minutes
-		Design 			- 16 minutes
-		Coding 			- 51 minutes
-		Playtesting		- 12 minutes
+		Design 			- 22 minutes
+		Coding 			- 65 minutes
+		Playtesting		- 14 minutes
 	
 	
 High Concept

@@ -20,6 +20,23 @@ public class SceneManager : MonoBehaviour
     /// Game time.
     /// </summary>
     public float gameTime = 60f;
+
+    #region Level Type
+    /// <summary>
+    /// Level Label.
+    /// </summary>
+    public string levelLabel = "";
+
+    /// <summary>
+    /// Level Subtitle
+    /// </summary>
+    public string levelSubtitle = "";
+
+    /// <summary>
+    /// How much time label will be in the level.
+    /// </summary>
+    public float levelLabelTime = 3f;
+    #endregion Level Type
     #endregion Inspector Variables
 
     #region Private Variables
@@ -27,7 +44,16 @@ public class SceneManager : MonoBehaviour
     /// Level seconds remaining.
     /// </summary>
     private float seconds;
+
+    /// <summary>
+    /// Label seconds remaining.
+    /// </summary>
+    private float labelSeconds;
     #endregion Private Variables
+
+    #region Styles
+    private GUIStyle titleStyle;
+    #endregion Styles
 
     #region Game Cycle Methods
     /// <summary>
@@ -36,6 +62,7 @@ public class SceneManager : MonoBehaviour
     void Start()
     {
         seconds = gameTime;
+        labelSeconds = levelLabelTime;
 
         InvokeRepeating("Countdown", 1f, 1f);
     }
@@ -62,6 +89,11 @@ public class SceneManager : MonoBehaviour
         {
             Application.LoadLevel("VictoryScreen");
         }
+
+        if( labelSeconds > 0f)
+        {
+            labelSeconds -= Time.deltaTime;
+        }
     }
 
     /// <summary>
@@ -69,10 +101,28 @@ public class SceneManager : MonoBehaviour
     /// </summary>
     void OnGUI()
     {
+        #region Title Style
+        if ( titleStyle == null )
+        {            
+            titleStyle = new GUIStyle(GUI.skin.label);
+
+            titleStyle.alignment = TextAnchor.MiddleCenter;
+            titleStyle.fontSize = 22;
+            titleStyle.fontStyle = FontStyle.Bold;
+
+        }
+        #endregion Title Style
+
         GUI.Label(new Rect(10, 10, 100, 20), "Score: " + score);
         GUI.Label(new Rect(10, 30, 100, 20), "Lives: " + lives);
 
         GUI.Label(new Rect(Screen.width - 70, 10, 60, 20), "Time: " + seconds);
+
+        if( labelSeconds > 0f )
+        {
+            GUI.Label(new Rect(75, (Screen.height / 2 - 100), Screen.width - 150, 50), levelLabel, titleStyle);
+            GUI.Label(new Rect(75, (Screen.height / 2 - 50), Screen.width - 150, 50), levelSubtitle, titleStyle);
+        }
     }
     #endregion Game Cycle Methods
 
