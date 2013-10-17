@@ -32,7 +32,7 @@ public class Shield : MonoBehaviour
     /// <param name="other">Collided object</param>
     void OnTriggerEnter(Collider other)
     {
-        if( other.tag == "Asteroid")
+        if (other.tag == "Enemy")
         {
             shieldStrenght--;
         }

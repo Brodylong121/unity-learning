@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Asteroid : MonoBehaviour 
+public class Enemy : MonoBehaviour
 {
     #region Inspector Variables
 
@@ -59,7 +59,7 @@ public class Asteroid : MonoBehaviour
     /// <summary>
     /// Powerup chance, from 0 to 1.
     /// </summary>
-    public float powerupChance = 0.03f;
+    public float powerupChance = 0.1f;
     #endregion Powerups
 
     /// <summary>
@@ -78,17 +78,17 @@ public class Asteroid : MonoBehaviour
     public AudioClip playerHitAudio;
     #endregion Inspector Variables
 
-    #region Private Variables
+    #region protected Variables
     /// <summary>
     /// Bullet speed
     /// </summary>
-    private float asteroidSpeed = 6.0f;
-    #endregion Private Variables
+    protected float enemySpeed = 6.0f;
+    #endregion protected Variables
 
     #region Game Cycle Methods
 
     /// <summary>
-    /// Initializes the asteroid.
+    /// Initializes the enemy.
     /// </summary>
     void Start()
     {
@@ -100,8 +100,8 @@ public class Asteroid : MonoBehaviour
     /// </summary>
     void Update()
     {
-        // Makes the asteroid move down
-        transform.Translate(Vector3.down * (asteroidSpeed * Time.deltaTime));
+        // Makes the enemy move down
+        transform.Translate(Vector3.down * (enemySpeed * Time.deltaTime));
 
         // Checks for the bottom of the screen
         if (transform.position.y < bottomLimit)
@@ -113,7 +113,7 @@ public class Asteroid : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if( other.tag == "Player" || other.tag == "Shield" || other.tag == "Block" )
+        if (other.tag == "Player" || other.tag == "Shield" || other.tag == "Block")
         {
             if (other.tag == "Player")
             {
@@ -129,13 +129,9 @@ public class Asteroid : MonoBehaviour
             if (explosion != null)
             {
                 Instantiate(explosion, transform.position, transform.rotation);
+                if (audio != null) audio.Play();
             }
-
-            if( audio != null )
-            {
-                audio.Play();
-            }
-
+            
             ResetPosition();
         }
     }
@@ -147,13 +143,13 @@ public class Asteroid : MonoBehaviour
     /// </summary>
     public void ResetPosition()
     {
-        asteroidSpeed = Random.Range(minSpeed, maxSpeed);
+        enemySpeed = Random.Range(minSpeed, maxSpeed);
         float scale = Random.Range(minScale, maxScale);
 
         transform.localScale = new Vector3(scale, scale, scale);
 
 
-        transform.position = new Vector3(Random.Range(minX, maxX) , topLimit, 0f);
+        transform.position = new Vector3(Random.Range(minX, maxX), topLimit, 0f);
     }
 
     /// <summary>

@@ -26,7 +26,7 @@ public class Block : MonoBehaviour
     #region Game Cycle Methods
 
     /// <summary>
-    /// Initializes the asteroid.
+    /// Initializes the block.
     /// </summary>
     void Start()
     {
@@ -38,7 +38,7 @@ public class Block : MonoBehaviour
     /// </summary>
     void Update()
     {
-        // Makes the asteroid move down
+        // Makes the block move down
         transform.Translate(Vector3.right * (speed * xMultiplier * Time.deltaTime));
 
         // Checks for the bottom of the screen

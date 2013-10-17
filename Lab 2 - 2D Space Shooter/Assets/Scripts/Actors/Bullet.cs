@@ -48,32 +48,31 @@ public class Bullet : MonoBehaviour
     /// </summary>
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Asteroid")
+        if( other.tag == "Enemy" || other.tag == "Block" )
         {
-            // Reset the position of the enemy.
-            Asteroid asteroid = other.GetComponent("Asteroid") as Asteroid;
-
-            // Randomly generates (or not) one power up.
-            asteroid.GeneratePowerup();
-
-            if (asteroid != null) asteroid.ResetPosition();
-
-            if (explosion != null)
+            if (other.tag == "Enemy")
             {
-                // Create an explosion on impact.
-                Instantiate(explosion, transform.position, transform.rotation);
+                // Reset the position of the enemy.
+                Enemy enemy = other.GetComponent("Enemy") as Enemy;
 
-                if (fxSound != null) AudioSource.PlayClipAtPoint(fxSound, transform.position);
+                // Randomly generates (or not) one power up.
+                enemy.GeneratePowerup();
+
+                if (enemy != null) enemy.ResetPosition();
+
+                if (explosion != null)
+                {
+                    // Create an explosion on impact.
+                    Instantiate(explosion, transform.position, transform.rotation);
+                }
             }
+
+            if (fxSound != null) AudioSource.PlayClipAtPoint(fxSound, transform.position);   
 
             // Adds to the score.
             SceneManager.AddScore();
 
             // Get rid of the object.
-            Destroy(gameObject);
-        }
-        if( other.tag == "Block" )
-        {
             Destroy(gameObject);
         }
     }

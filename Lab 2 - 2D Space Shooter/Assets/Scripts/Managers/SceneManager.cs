@@ -33,6 +33,11 @@ public class SceneManager : MonoBehaviour
     public string levelSubtitle = "";
 
     /// <summary>
+    /// Next level.
+    /// </summary>
+    public string nextLevel = "";
+
+    /// <summary>
     /// How much time label will be in the level.
     /// </summary>
     public float levelLabelTime = 3f;
@@ -87,7 +92,7 @@ public class SceneManager : MonoBehaviour
         // If the time ends, you win!
         if( seconds <= 0 )
         {
-            Application.LoadLevel("VictoryScreen");
+            Application.LoadLevel(nextLevel);
         }
 
         if( labelSeconds > 0f)
