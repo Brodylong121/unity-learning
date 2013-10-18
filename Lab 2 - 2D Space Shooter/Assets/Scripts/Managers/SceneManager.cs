@@ -13,6 +13,8 @@ public class SceneManager : MonoBehaviour
     /// The player lives.
     /// </summary>
     public static int lives = 3;
+	
+	public static int shields = 3;
     #endregion Static Variables
 
     #region Inspector Variables
@@ -122,6 +124,7 @@ public class SceneManager : MonoBehaviour
         GUI.Label(new Rect(10, 30, 100, 20), "Lives: " + lives);
 
         GUI.Label(new Rect(Screen.width - 70, 10, 60, 20), "Time: " + seconds);
+		GUI.Label(new Rect(Screen.width - 70, 30, 60, 20), "Shields: " + shields);
 
         if( labelSeconds > 0f )
         {

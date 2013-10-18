@@ -83,6 +83,7 @@ public class Enemy : MonoBehaviour
     /// Bullet speed
     /// </summary>
     protected float enemySpeed = 6.0f;
+	
     #endregion protected Variables
 
     #region Game Cycle Methods
@@ -118,6 +119,8 @@ public class Enemy : MonoBehaviour
             if (other.tag == "Player")
             {
                 SceneManager.SubtractLives();
+				
+				(other.GetComponent("Player") as Player).GetHit();
 
                 if (audio != null) audio.clip = playerHitAudio;
             }

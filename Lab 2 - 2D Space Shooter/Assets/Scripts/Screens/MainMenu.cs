@@ -26,6 +26,7 @@ public class MainMenu : MonoBehaviour
         {
             SceneManager.score = 0;
             SceneManager.lives = 3;
+			SceneManager.shields = 5;
             Application.LoadLevel("LoadingScreen");
         }
 

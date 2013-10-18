@@ -41,7 +41,8 @@ public class LoadingScreen : MonoBehaviour
         // Instructions for the player.
         GUI.Label( new Rect(10, 30, 140, 40), "Arrow Keys / WASD to Move" );
         GUI.Label( new Rect(10, 60, 160, 70), "Spacebar to Shoot" );
-        GUI.Label( new Rect(10, 90, 160, 100), "Escape to Quit" );
+		GUI.Label( new Rect(10, 90, 160, 100), "E to use Shield" );
+        GUI.Label( new Rect(10, 120, 160, 130), "Escape to Quit" );
 
         //Ends group started on BeginGroup.
         GUI.EndGroup();

@@ -10,11 +10,6 @@ public class Player : MonoBehaviour
     public Vector2 playerSpeed = new Vector2(10f, 10f);
 
     /// <summary>
-    /// Number of shields the player can use.
-    /// </summary>
-    public int numberOfShields = 4;
-
-    /// <summary>
     /// Shield mesh.
     /// </summary>
     public Transform shieldMesh = null;
@@ -56,6 +51,16 @@ public class Player : MonoBehaviour
     /// Sockets being used right now.
     /// </summary>
     public int usedSockets = 1;
+	
+	/// <summary>
+	/// The blinking time.
+	/// </summary>
+	public float blinkingTime = 1f;
+	
+	/// <summary>
+	/// Is this blinking?
+	/// </summary>
+	public bool isBlinking = false;
     #endregion Projectible Variables
 
     #endregion Inspector Variables
@@ -65,6 +70,11 @@ public class Player : MonoBehaviour
     /// Is the shield on?
     /// </summary>
     private bool shieldOn = false;
+	
+	#region Blinking
+	private float elapsedBlinkingTime = 0f;	
+	#endregion Blinking
+	
     #endregion Private Variables
 
     #region Game Cycle Methods
@@ -117,12 +127,12 @@ public class Player : MonoBehaviour
         {
             if( shieldMesh != null )
             {
-                if (!shieldOn && numberOfShields > 0)
+                if (!shieldOn && SceneManager.shields > 0)
                 {
                     Transform shield = Instantiate(shieldMesh, transform.position, transform.rotation) as Transform;
                     shield.transform.parent = gameObject.transform;
 
-                    numberOfShields--;
+                    SceneManager.shields--;
 
                     shieldOn = true;
                 }
@@ -159,5 +169,24 @@ public class Player : MonoBehaviour
 
         SceneManager.score += 1;
     }
+	
+	public void GetHit()
+	{
+		isBlinking = true;
+		elapsedBlinkingTime = 0f;
+		InvokeRepeating("Blink", 0.2f, 0.2f);
+	}
+	
+	private void Blink()
+	{
+		renderer.enabled = !renderer.isVisible;
+		elapsedBlinkingTime += 0.2f;
+		
+		if( elapsedBlinkingTime > blinkingTime )
+		{
+			renderer.enabled = true;
+			CancelInvoke("Blink");
+		}
+	}
     #endregion Methods
 }
