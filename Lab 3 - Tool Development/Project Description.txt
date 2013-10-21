@@ -11,3 +11,18 @@ Tool - 3ds Max Batch Exporting
 Tool - 3ds Max Sprite Sheet Renderer
 
 Workflow - Let's use the tools!
+
+Time:
+	(Lab)
+	Research		- 68 minutes
+	Art				- 2 minutes
+	Design 			- 8 minutes
+	Coding 			- 75 minutes
+	Playtesting		- 10 minutes
+	
+	(Own)
+	Research		- 0 minutes
+	Art				- 0 minutes
+	Design 			- 0 minutes
+	Coding 			- 0 minutes
+	Playtesting		- 0 minutes
