@@ -14,10 +14,10 @@ Workflow - Let's use the tools!
 
 Time:
 	(Lab)
-	Research		- 68 minutes
+	Research		- 71 minutes
 	Art				- 2 minutes
 	Design 			- 8 minutes
-	Coding 			- 75 minutes
+	Coding 			- 119 minutes
 	Playtesting		- 10 minutes
 	
 	(Own)
