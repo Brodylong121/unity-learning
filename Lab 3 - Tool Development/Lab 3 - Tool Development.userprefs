@@ -1,21 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Timer\TimerStep12.cs">
-    <Files>
-      <File FileName="Assets\Scripts\Timer\TimerStep01.cs" Line="5" Column="1" />
-      <File FileName="Assets\Scripts\Timer\TimerStep02.cs" Line="4" Column="25" />
-      <File FileName="Assets\Scripts\Timer\TimerStep03.cs" Line="6" Column="1" />
-      <File FileName="Assets\Scripts\Timer\TimerStep04.cs" Line="18" Column="16" />
-      <File FileName="Assets\Scripts\Timer\TimerStep05.cs" Line="35" Column="3" />
-      <File FileName="Assets\Scripts\Timer\TimerStep06.cs" Line="40" Column="1" />
-      <File FileName="Assets\Scripts\Timer\TimerStep07.cs" Line="6" Column="1" />
-      <File FileName="Assets\Scripts\Timer\TimerStep08.cs" Line="65" Column="23" />
-      <File FileName="Assets\Scripts\Timer\TimerStep09.cs" Line="6" Column="1" />
-      <File FileName="Assets\Scripts\Timer\TimerStep10.cs" Line="6" Column="1" />
-      <File FileName="Assets\Scripts\Timer\TimerStep11.cs" Line="6" Column="1" />
-      <File FileName="Assets\Scripts\Timer\TimerStep12.cs" Line="13" Column="20" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -17,7 +17,7 @@ Time:
 	Research		- 71 minutes
 	Art				- 2 minutes
 	Design 			- 8 minutes
-	Coding 			- 119 minutes
+	Coding 			- 204 minutes
 	Playtesting		- 10 minutes
 	
 	(Own)
