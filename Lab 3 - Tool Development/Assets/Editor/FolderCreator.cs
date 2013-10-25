@@ -17,17 +17,20 @@ public class FolderCreator : MonoBehaviour
 		string assets = Application.dataPath + "/";
 		
 		Directory.CreateDirectory(assets + "Audio");
-		Directory.CreateDirectory(assets + "Materials");
-		Directory.CreateDirectory(assets + "Prefabs");
-		Directory.CreateDirectory(assets + "Scripts");
-		Directory.CreateDirectory(assets + "Meshes");
-		Directory.CreateDirectory(assets + "Textures");
-		Directory.CreateDirectory(assets + "Scripts");
+		Directory.CreateDirectory(assets + "Audio/Music");
+		Directory.CreateDirectory(assets + "Audio/SoundEffects");
+		Directory.CreateDirectory(assets + "Editor");
 		Directory.CreateDirectory(assets + "Fonts");
-		Directory.CreateDirectory(assets + "Resources");
-		Directory.CreateDirectory(assets + "Shaders");
-		Directory.CreateDirectory(assets + "Packages");
+		Directory.CreateDirectory(assets + "Libraries");
+		Directory.CreateDirectory(assets + "Materials");
+		Directory.CreateDirectory(assets + "Models");
 		Directory.CreateDirectory(assets + "Physics");
+		Directory.CreateDirectory(assets + "Prefabs");
+		Directory.CreateDirectory(assets + "Resources");
+		Directory.CreateDirectory(assets + "Scenes");	
+		Directory.CreateDirectory(assets + "Scripts");
+		Directory.CreateDirectory(assets + "Shaders");
+		Directory.CreateDirectory(assets + "Textures");	
 		
 		AssetDatabase.Refresh();
 	}
