@@ -21,8 +21,8 @@ Time:
 	Playtesting		- 10 minutes
 	
 	(Own)
-	Research		- 5 minutes
 	Art				- 0 minutes
+	Research		- 5 minutes
 	Design 			- 0 minutes
-	Coding 			- 25 minutes
+	Coding 			- 75 minutes
 	Playtesting		- 0 minutes
